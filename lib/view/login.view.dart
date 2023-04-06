@@ -37,7 +37,7 @@ class LoginView extends StatelessWidget {
                                 padding: EdgeInsets.only(left :60.0),
                                 child: Center(
                                   child: Text(
-                                    'Bienvenue',
+                                    'Welcome',
                                     style: TextStyle(
                                       color: Colors.white,
                                       fontSize: 30,
