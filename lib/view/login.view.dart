@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_project/utils/global.colors.dart';
+import 'package:my_project/view/splash.view.dart';
 import 'package:my_project/view/widgets/social.login.dart';
 import 'package:my_project/view/widgets/text.form.global.dart';
 import 'package:my_project/view/widgets/button.global.dart';
+import 'package:get/get.dart';
 
 class LoginView extends StatelessWidget {
   LoginView({super.key});
@@ -17,7 +19,7 @@ class LoginView extends StatelessWidget {
           child: Container(
             width: double.infinity,
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     Container(
                       height: 150,
@@ -28,28 +30,39 @@ class LoginView extends StatelessWidget {
                         bottomRight: Radius.circular(30),
                        ),
                        ),
-                        child: Row(
+                        child:   Row(
                           children: [
                             const Expanded(
                               child: Padding(
-                                padding: EdgeInsets.only(left: 60),
-                                child: Text(
-                                  'Bienvenue',
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 30,
-                                    fontWeight: FontWeight.bold,
+                                padding: EdgeInsets.only(left :60.0),
+                                child: Center(
+                                  child: Text(
+                                    'Bienvenue',
+                                    style: TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 30,
+                                      fontWeight: FontWeight.bold,
+                                    ),
                                   ),
                                 ),
                               ),
                             ),
-                            Expanded(
-                               child: Image.asset(
-                                'assets/images/login2.png',
-                                width: 100,
-                                height: 100,
-                              ),
+                           Expanded(
+                            child: Stack(
+                              
+                              children: [
+                                Positioned(
+                                  right: 30,
+                                  bottom: -5,
+                                  child: Image.asset(
+                                    'assets/images/login2.png',
+                                    width: 120,
+                                    height: 120,
+                                  ),
+                                ),
+                              ],
                             ),
+                          )
                           ],
                         ),
                       ),
@@ -135,6 +148,9 @@ class LoginView extends StatelessWidget {
                 'Don\'t have an account?',
                 ),
                 InkWell(
+                  onTap: (){
+                    Get.to(const SplashView());
+                  },
                   child: Text(
                     'sign Up',
                     style: TextStyle(
