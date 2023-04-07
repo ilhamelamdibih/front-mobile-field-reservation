@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_project/utils/global.colors.dart';
-import 'package:my_project/view/splash.view.dart';
+import 'package:my_project/view/register.view.dart';
 import 'package:my_project/view/widgets/social.login.dart';
 import 'package:my_project/view/widgets/text.form.global.dart';
 import 'package:my_project/view/widgets/button.global.dart';
@@ -149,7 +149,7 @@ class LoginView extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: (){
-                    Get.to(const SplashView());
+                    Get.to(RegisterView());
                   },
                   child: Text(
                     'sign Up',

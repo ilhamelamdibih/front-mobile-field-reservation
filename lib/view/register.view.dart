@@ -1,17 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:register/view/button.global.dart';
-import 'package:register/view/social.login.dart';
-import 'package:register/view/text.form.global.dart';
+import 'package:my_project/view/widgets/button.global.dart';
+import 'package:my_project/view/widgets/text.form.global.dart';
+import 'package:my_project/view/widgets/social.login.dart';
 
 import '../utils/global.colors.dart';
 
 class RegisterView extends StatelessWidget {
   RegisterView({Key? key}) : super(key: key);
+
   final TextEditingController emailController = TextEditingController();
   final TextEditingController fullnameController = TextEditingController();
 
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController passwordconfController = TextEditingController();
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -89,7 +91,7 @@ class RegisterView extends StatelessWidget {
                 const SizedBox(height: 10),
                 const ButtonGlobal(),
                 const SizedBox(height: 25),
-                const SocialRegister(),
+                const SocialLogin(),
               ],
             ), // Column
           ), // Container
