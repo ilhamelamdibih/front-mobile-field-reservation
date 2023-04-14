@@ -1,6 +1,9 @@
+//import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:my_project/utils/global.colors.dart';
-import 'package:my_project/view/register.view.dart';
+import 'package:my_project/view/profile/ProfileMenuWidge.dart';
+//import 'package:my_project/view/register.view.dart';
 import 'package:my_project/view/widgets/social.login.dart';
 import 'package:my_project/view/widgets/text.form.global.dart';
 import 'package:my_project/view/widgets/button.global.dart';
@@ -13,10 +16,11 @@ class LoginView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
-          child: Container(
+          child: SizedBox(
             width: double.infinity,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -149,7 +153,17 @@ class LoginView extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: (){
-                    Get.to(RegisterView());
+                    Get.to(
+                       ProfileMenuWidget(
+                      title: 'Ilhame',
+                      icon: Icons.logout,
+                      onPress: () {
+                        // Do something when the menu item is pressed
+                      },
+                      endIcon: false,
+                      textColor: Colors.red,
+                    ),
+                    );
                   },
                   child: Text(
                     'sign Up',

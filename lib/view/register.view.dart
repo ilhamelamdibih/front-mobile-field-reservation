@@ -13,7 +13,7 @@ class RegisterView extends StatelessWidget {
 
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController passwordconfController = TextEditingController();
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
