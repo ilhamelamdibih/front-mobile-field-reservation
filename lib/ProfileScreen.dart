@@ -1,31 +1,38 @@
-import 'package:my_project/utils/global.colors.dart';
-import 'package:my_project/view/profile/UpdateProfileScreen.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 import 'ProfileMenuWidge.dart';
+import 'UpdateProfileScreen.dart';
+import 'constant/colors.dart';
+import 'constant/images.dart';
+import 'constant/size.dart';
+import 'constant/text.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-   // var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
             onPressed: () => Get.back(),
-            icon: const Icon(Icons.abc/*LineAwesomeIcons.angle_left*/)),
-        title: Text("tProfile", style: Theme.of(context).textTheme.headlineMedium),
+            icon: const Icon(LineAwesomeIcons.angle_left)),
+        title:
+            Text(tProfile, style: Theme.of(context).textTheme.headlineMedium),
         actions: [
           IconButton(
               onPressed: () {},
-              icon: const Icon( Icons.abc_sharp /*  //isDark ? LineAwesomeIcons.sun : LineAwesomeIcons.moon*/))
+              icon: Icon(isDark ? LineAwesomeIcons.sun : LineAwesomeIcons.moon))
         ],
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(50/*tDefaultSize*/),
+          padding: const EdgeInsets.all(tDefaultSize),
           child: Column(
             children: [
               /// -- IMAGE
@@ -36,7 +43,7 @@ class ProfileScreen extends StatelessWidget {
                     height: 120,
                     child: ClipRRect(
                         borderRadius: BorderRadius.circular(100),
-                        child: const Image(image: AssetImage('assets/images/login2.png'))),
+                        child: const Image(image: AssetImage(tProfileImage))),
                   ),
                   Positioned(
                     bottom: 0,
@@ -46,9 +53,9 @@ class ProfileScreen extends StatelessWidget {
                       height: 35,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(100),
-                          color:Colors.red /*tPrimaryColor*/),
+                          color: tPrimaryColor),
                       child: const Icon(
-                        Icons.abc,//LineAwesomeIcons.alternate_pencil,
+                        LineAwesomeIcons.alternate_pencil,
                         color: Colors.black,
                         size: 20,
                       ),
@@ -57,10 +64,10 @@ class ProfileScreen extends StatelessWidget {
                 ],
               ),
               const SizedBox(height: 10),
-              Text('tProfileHeading',
-                  style: Theme.of(context).textTheme.headline4),
-              Text('tProfileSubHeading',
-                  style: Theme.of(context).textTheme.bodyText2),
+              Text(tProfileHeading,
+                  style: Theme.of(context).textTheme.headlineMedium),
+              Text(tProfileSubHeading,
+                  style: Theme.of(context).textTheme.bodyMedium),
               const SizedBox(height: 20),
 
               /// -- BUTTON
@@ -69,11 +76,11 @@ class ProfileScreen extends StatelessWidget {
                 child: ElevatedButton(
                   onPressed: () => Get.to(() => const UpdateProfileScreen()),
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: GlobalColors.mainColor,
+                      backgroundColor: tPrimaryColor,
                       side: BorderSide.none,
                       shape: const StadiumBorder()),
-                  child: const Text('tEditProfile',
-                      style: TextStyle(color:Colors.black26 /*tDarkColor*/)),
+                  child: const Text(tEditProfile,
+                      style: TextStyle(color: tDarkColor)),
                 ),
               ),
               const SizedBox(height: 30),
@@ -83,25 +90,25 @@ class ProfileScreen extends StatelessWidget {
               /// -- MENU
               ProfileMenuWidget(
                   title: "Settings",
-                  icon: Icons.abc, //LineAwesomeIcons.cog,
+                  icon: LineAwesomeIcons.cog,
                   onPress: () {}),
               ProfileMenuWidget(
                   title: "Billing Details",
-                  icon: Icons.abc, //LineAwesomeIcons.wallet,
+                  icon: LineAwesomeIcons.wallet,
                   onPress: () {}),
               ProfileMenuWidget(
                   title: "User Management",
-                  icon: Icons.abc, //LineAwesomeIcons.user_check,
+                  icon: LineAwesomeIcons.user_check,
                   onPress: () {}),
               const Divider(),
               const SizedBox(height: 10),
               ProfileMenuWidget(
                   title: "Information",
-                  icon:  Icons.abc, //LineAwesomeIcons.info,
+                  icon: LineAwesomeIcons.info,
                   onPress: () {}),
               ProfileMenuWidget(
                   title: "Logout",
-                  icon:  Icons.abc,//LineAwesomeIcons.alternate_sign_out,
+                  icon: LineAwesomeIcons.alternate_sign_out,
                   textColor: Colors.red,
                   endIcon: false,
                   onPress: () {
@@ -111,16 +118,15 @@ class ProfileScreen extends StatelessWidget {
                       content: const Padding(
                         padding: EdgeInsets.symmetric(vertical: 15.0),
                         child: Text("Are you sure, you want to Logout?"),
-                      ),
-                      /*  confirm: Expanded(
+                      ), /*
+                      confirm: Expanded(
                         child: ElevatedButton(
                           onPressed: () => AuthenticationRepository.instance.logout(),
                           style: ElevatedButton.styleFrom(backgroundColor: Colors.redAccent, side: BorderSide.none),
                           child: const Text("Yes"),
                         ),
-                      ),*/
-                      cancel: OutlinedButton(
-                          onPressed: () => Get.back(), child: const Text("No")),
+                      ),
+                      cancel: OutlinedButton(onPressed: () => Get.back(), child: const Text("No")),*/
                     );
                   }),
             ],

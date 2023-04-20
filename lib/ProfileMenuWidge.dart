@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
-//import 'package:flutter/widgets.dart';
+import 'package:flutter/widgets.dart';
+import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 
 class ProfileMenuWidget extends StatelessWidget {
   const ProfileMenuWidget({
     Key? key,
-     required this.title,
-     required this.icon,
-     required this.onPress,
-     this.endIcon = true,
-     this.textColor,
+    required this.title,
+    required this.icon,
+    required this.onPress,
+    this.endIcon = true,
+    this.textColor,
   }) : super(key: key);
 
   final String title;
@@ -19,8 +20,8 @@ class ProfileMenuWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-   // var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
-    var iconColor = Colors.white;
+    var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
+    var iconColor = Color.fromARGB(255, 14, 5, 5);
 
     return ListTile(
       onTap: onPress,
@@ -44,7 +45,7 @@ class ProfileMenuWidget extends StatelessWidget {
                 borderRadius: BorderRadius.circular(100),
                 color: Colors.grey.withOpacity(0.1),
               ),
-              child: const Icon(Icons.abc_sharp,
+              child: const Icon(LineAwesomeIcons.angle_right,
                   size: 18.0, color: Colors.grey))
           : null,
     );
