@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_project/screens/appoint_screen.dart';
+import 'package:get/get.dart';
 
 class FieldCard extends StatelessWidget {
   final String title;
@@ -13,7 +15,14 @@ class FieldCard extends StatelessWidget {
   });
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return 
+     InkWell(
+            onTap: (){
+              Get.offAll(
+                AppointScreen(),
+                  );
+          },
+    child : Container(
       margin: EdgeInsets.symmetric(horizontal: 22, vertical: 10),
       width: MediaQuery.of(context).size.width,
       height: 180,
@@ -106,6 +115,8 @@ class FieldCard extends StatelessWidget {
           ),
         ],
       ),
+      ),
     );
+    
   }
 }

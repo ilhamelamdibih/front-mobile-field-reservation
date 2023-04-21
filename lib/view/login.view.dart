@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_project/utils/global.colors.dart';
 import 'package:my_project/view/profile/ProfileMenuWidge.dart';
+import 'package:my_project/view/register.view.dart';
 //import 'package:my_project/view/register.view.dart';
 import 'package:my_project/view/widgets/social.login.dart';
 import 'package:my_project/view/widgets/text.form.global.dart';
@@ -154,15 +155,7 @@ class LoginView extends StatelessWidget {
                 InkWell(
                   onTap: (){
                     Get.to(
-                       ProfileMenuWidget(
-                      title: 'Ilhame',
-                      icon: Icons.logout,
-                      onPress: () {
-                        // Do something when the menu item is pressed
-                      },
-                      endIcon: false,
-                      textColor: Colors.red,
-                    ),
+                       RegisterView(),
                     );
                   },
                   child: Text(
