@@ -18,7 +18,7 @@ class Autentification {
         totalTime: '50');
   }
 
-  static List<Autentification> fieldsFromSanpshot(List snapshot) {
+  static List<Autentification> authentifiationFromSanpshot(List snapshot) {
     return snapshot.map((data) {
       return Autentification.fromJson(data);
     }).toList();

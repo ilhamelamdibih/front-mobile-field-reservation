@@ -1,6 +1,6 @@
 import 'dart:convert';
-import 'package:my_project/models/Autentification.dart';
 import 'package:http/http.dart' as http;
+import 'package:my_project/models/authentification.dart';
 
 class AutentificationApi {
   static Future<List<Autentification>> getField() async {
@@ -16,6 +16,6 @@ class AutentificationApi {
       temp.add(i);
     }
 
-    return Autentification.fieldsFromSanpshot(temp);
+    return Autentification.authentifiationFromSanpshot(temp);
   }
 }

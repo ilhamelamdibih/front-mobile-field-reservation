@@ -1,8 +1,10 @@
 //import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:my_project/ProfileMenuWidge.dart';
+import 'package:my_project/ProfileScreen.dart';
 import 'package:my_project/utils/global.colors.dart';
-import 'package:my_project/view/profile/ProfileMenuWidge.dart';
+//import 'package:my_project/view/ProfileMenuWidge.dart';
 import 'package:my_project/view/register.view.dart';
 //import 'package:my_project/view/register.view.dart';
 import 'package:my_project/view/widgets/social.login.dart';
@@ -154,8 +156,9 @@ class LoginView extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: (){
-                    Get.to(
-                       RegisterView(),
+                    
+                   Get.to(
+                    RegisterView(),
                     );
                   },
                   child: Text(
