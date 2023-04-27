@@ -13,38 +13,35 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   late List<Field> _fields;
-  bool _isLoading=true;
+  bool _isLoading = true;
 
   @override
-  void initState(){
+  void initState() {
     super.initState();
     getFields();
   }
 
-  Future<void> getFields() async{
+  Future<void> getFields() async {
     _fields = await FieldApi.getField();
     setState(() {
-      _isLoading=false;
+      _isLoading = false;
     });
   }
-
-  
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: GlobalColors.mainColor,
-        title:
-        const Row(
-           mainAxisAlignment:MainAxisAlignment.center,
-          children: [
-         // Icon(Icons.crop_square),
-         // SizedBox(width: 10),
-          Text('Field List')
-        ],)
-      ),
-      body:_isLoading
+        appBar: AppBar(
+            backgroundColor: GlobalColors.mainColor,
+            title: const Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                // Icon(Icons.crop_square),
+                // SizedBox(width: 10),
+                Text('Field List')
+              ],
+            )),
+        body: _isLoading
             ? Center(child: CircularProgressIndicator())
             : ListView.builder(
                 itemCount: _fields.length,
