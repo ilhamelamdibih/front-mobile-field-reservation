@@ -33,7 +33,7 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
         appBar: AppBar(
             backgroundColor: GlobalColors.mainColor,
-            title: const Row(
+            title: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 // Icon(Icons.crop_square),
