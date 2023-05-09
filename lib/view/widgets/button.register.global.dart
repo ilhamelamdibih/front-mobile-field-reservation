@@ -2,21 +2,21 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:my_project/controllers/login_controller.dart';
+import 'package:my_project/controllers/registration_controller.dart';
 import 'package:my_project/utils/global.colors.dart';
 
 
-class ButtonGlobal extends StatelessWidget {
+class ButtonRegisterGlobal extends StatelessWidget {
 
-  const ButtonGlobal({super.key});
+  const ButtonRegisterGlobal({super.key});
 
-  static LoginController loginController = Get.put(LoginController());
+  static RegistrationController registrationController = Get.put(RegistrationController());
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: (){
-       loginController.loginWithEmail();
+       registrationController.registerWithEmail();
       },
       child: Container(
         alignment: Alignment.center,

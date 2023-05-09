@@ -1,14 +1,16 @@
 class Field{
+  final int id;
   final String name;
   final String images;
   final double rating;
   final String totalTime;
 
 
-  Field({required this.name,required this.images,required this.rating,required this.totalTime});
+  Field({required this.id,required this.name,required this.images,required this.rating,required this.totalTime});
 
   factory Field.fromJson(dynamic json){
     return Field(
+      id:json['id'] as int,
       name:json['Fieldname'] as String,
       images:json['terrain_photo'] as String,
       rating :4.5,
@@ -24,6 +26,6 @@ class Field{
 
   @override
   String toString(){
-    return 'Recipe {name: $name, image: $images, rating: $rating, totalTime: $totalTime}';
+    return 'Field {id: $id, name: $name, image: $images, rating: $rating, totalTime: $totalTime}';
   }
 }

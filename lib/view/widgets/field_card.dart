@@ -3,11 +3,13 @@ import 'package:my_project/screens/appoint_screen.dart';
 import 'package:get/get.dart';
 
 class FieldCard extends StatelessWidget {
+  final int id;
   final String title;
   final String rating;
   final String cookTime;
   final String thumbnailUrl;
   const FieldCard({super.key, 
+    required this.id,
     required this.title,
     required this.cookTime,
     required this.rating,
@@ -19,7 +21,7 @@ class FieldCard extends StatelessWidget {
      InkWell(
             onTap: (){
               Get.offAll(
-                AppointScreen(),
+                AppointScreen(id: id,name :title,image :thumbnailUrl),
                   );
           },
     child : Container(

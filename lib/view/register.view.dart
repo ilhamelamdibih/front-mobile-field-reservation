@@ -1,18 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:my_project/view/widgets/button.global.dart';
+import 'package:my_project/controllers/registration_controller.dart';
+import 'package:my_project/view/widgets/button.register.global.dart';
 import 'package:my_project/view/widgets/text.form.global.dart';
 import 'package:my_project/view/widgets/social.login.dart';
-
+import 'package:get/get.dart';
 import '../utils/global.colors.dart';
 
 class RegisterView extends StatelessWidget {
   RegisterView({Key? key}) : super(key: key);
 
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController fullnameController = TextEditingController();
-
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController passwordconfController = TextEditingController();
+  RegistrationController registrationController = Get.put(RegistrationController());
 
   @override
   Widget build(BuildContext context) {
@@ -60,7 +57,7 @@ class RegisterView extends StatelessWidget {
 
                 //////fullname Input
                 TextFormGlobal(
-                  controller: fullnameController,
+                  controller: registrationController.nameController,
                   text: 'fullname',
                   textInputType: TextInputType.text,
                   obscure: false,
@@ -68,28 +65,28 @@ class RegisterView extends StatelessWidget {
 
                 /////email input
                 TextFormGlobal(
-                  controller: emailController,
+                  controller: registrationController.emailController,
                   text: 'email',
                   obscure: false,
                   textInputType: TextInputType.emailAddress,
                 ),
                 /////password Input
                 TextFormGlobal(
-                  controller: passwordController,
+                  controller: registrationController.passwordController,
                   text: 'passwordoo',
                   textInputType: TextInputType.text,
                   obscure: true,
                 ),
                 ///// password conf input
-                TextFormGlobal(
-                  controller: passwordconfController,
-                  text: 'password conf',
-                  textInputType: TextInputType.text,
-                  obscure: true,
-                ),
+                // TextFormGlobal(
+                //   controller: passwordconfController,
+                //   text: 'password conf',
+                //   textInputType: TextInputType.text,
+                //   obscure: true,
+                // ),
 
                 const SizedBox(height: 10),
-                const ButtonGlobal(),
+                const ButtonRegisterGlobal(),
                 const SizedBox(height: 25),
                 const SocialLogin(),
               ],

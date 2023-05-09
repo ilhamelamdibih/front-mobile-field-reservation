@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_project/ProfileMenuWidge.dart';
 import 'package:my_project/ProfileScreen.dart';
+import 'package:my_project/controllers/login_controller.dart';
 import 'package:my_project/utils/global.colors.dart';
 //import 'package:my_project/view/ProfileMenuWidge.dart';
 import 'package:my_project/view/register.view.dart';
@@ -14,8 +15,10 @@ import 'package:get/get.dart';
 
 class LoginView extends StatelessWidget {
   LoginView({super.key});
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
+  // final TextEditingController emailController = TextEditingController();
+  // final TextEditingController passwordController = TextEditingController();
+
+  LoginController loginController = Get.put(LoginController());
 
   @override
   Widget build(BuildContext context) {
@@ -115,7 +118,7 @@ class LoginView extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 15.0),
                       child: TextFormGlobal(
-                        controller: emailController,
+                        controller: loginController.emailController,
                         text:'Email',
                         obscure:false,
                         textInputType: TextInputType.emailAddress,
@@ -126,7 +129,7 @@ class LoginView extends StatelessWidget {
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 15.0),
                       child: TextFormGlobal(
-                        controller: passwordController,
+                        controller: loginController.passwordController,
                         text:'Password',
                         obscure:true,
                         textInputType: TextInputType.text,

@@ -47,6 +47,7 @@ class _HomePageState extends State<HomePage> {
                 itemCount: _fields.length,
                 itemBuilder: (context, index) {
                   return FieldCard(
+                      id : _fields[index].id,
                       title: _fields[index].name,
                       cookTime: _fields[index].totalTime,
                       rating: _fields[index].rating.toString(),
