@@ -3,6 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
+import 'package:my_project/screens/details_screen.dart';
+import 'package:my_project/utils/global.colors.dart';
+import 'package:my_project/view/home.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'ProfileMenuWidge.dart';
 import 'UpdateProfileScreen.dart';
@@ -13,22 +17,130 @@ import 'constant/text.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({Key? key}) : super(key: key);
+  
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context)  {
+    
+
     var isDark = MediaQuery.of(context).platformBrightness == Brightness.dark;
     return Scaffold(
-      appBar: AppBar(
-        leading: IconButton(
-            onPressed: () => Get.back(),
-            icon: const Icon(LineAwesomeIcons.angle_left)),
-        title:
-            Text(tProfile, style: Theme.of(context).textTheme.headlineMedium),
-        actions: [
-          IconButton(
+       appBar: AppBar(
+        centerTitle: true,
+        title: Text(
+          "Profile",
+          style: TextStyle(color: Colors.white),
+        ),
+        backgroundColor: GlobalColors.mainColor,
+      ),
+            floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+            floatingActionButton: FloatingActionButton(
               onPressed: () {},
-              icon: Icon(isDark ? LineAwesomeIcons.sun : LineAwesomeIcons.moon))
-        ],
+              child: Icon(Icons.add),
+              backgroundColor: GlobalColors.mainColor,
+              foregroundColor: Colors.white,
+              elevation: 0,
+              // shape: BeveledRectangleBorder(
+              //     // borderRadius: BorderRadius.circular(20.0),
+              //     // side: BorderSide(color: Colors.blue, width: 2.0, style: BorderStyle.solid)
+              //     ),
+              // mini: true,
+            ),
+          bottomNavigationBar: BottomAppBar(
+        notchMargin: 5.0,
+        shape: CircularNotchedRectangle(),
+        color: GlobalColors.mainColor,
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisSize: MainAxisSize.max,
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(left: 10.0),
+               child: GestureDetector(
+                      onTap: () {
+                        // Code to execute when the widget is tapped
+                        Get.off(HomePage());
+                      },
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.home,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            "Home",
+                            style: TextStyle(color: Colors.white),
+                          )
+                        ],
+                      ),
+                    )
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.only(right: 20.0, top: 10.0, bottom: 10.0),
+              child: GestureDetector(
+                      onTap: () {
+                        // Code to execute when the widget is tapped
+                        Get.off(DetailsScreen());
+                      },
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.book,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            "Reservations",
+                            style: TextStyle(color: Colors.white),
+                          )
+                        ],
+                      ),
+                    )
+
+            ),
+            Padding(
+              padding:
+                  const EdgeInsets.only(left: 20.0, top: 10.0, bottom: 10.0),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    Icons.favorite,
+                    color: Colors.white,
+                  ),
+                  Text(
+                    "Fav",
+                    style: TextStyle(color: Colors.white),
+                  )
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.only(right: 10.0),
+              child: GestureDetector(
+                      onTap: () {
+                        // Code to execute when the widget is tapped
+                        Get.off(ProfileScreen());
+                      },
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Icon(
+                            Icons.supervisor_account_outlined,
+                            color: Colors.white,
+                          ),
+                          Text(
+                            "User",
+                            style: TextStyle(color: Colors.white),
+                          )
+                        ],
+                      ),
+                    )
+            ),
+          ],
+        ),
       ),
       body: SingleChildScrollView(
         child: Container(
@@ -136,3 +248,12 @@ class ProfileScreen extends StatelessWidget {
     );
   }
 }
+
+
+
+// Future<String?> getReservation() async {
+//   final Future<SharedPreferences> _prefs = SharedPreferences.getInstance();
+//   final SharedPreferences prefs = await _prefs;
+  
+//   return prefs.getString('firstName') ?? null;
+// }

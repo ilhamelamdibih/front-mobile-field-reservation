@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:my_project/utils/api_endpoints.dart';
 import 'package:http/http.dart' as http;
-import 'package:my_project/view/home.dart';
+import 'package:my_project/screens/details_screen.dart';
 import 'package:intl/intl.dart';
 
 
@@ -52,7 +52,7 @@ class ReservationController extends GetxController{
                     children: [Text(json['message'])],
                   );
                 });
-          Get.off(HomePage());
+          Get.off(DetailsScreen());
         }
         else{
           throw jsonDecode(response.body)['message'] ?? "Unknown Error Occured";

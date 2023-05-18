@@ -34,10 +34,13 @@ class LoginController extends GetxController{
         if(json['status'] == 200)
         {
           var token = json['jwt'];
-          print(token);
+          print(json);
           final SharedPreferences? prefs = await _prefs;
 
           await prefs?.setString('token', token);
+          await prefs?.setInt('userId', json['user']['id']);
+          await prefs?.setString('firstName', json['user']['first_name']);
+          await prefs?.setString('lastName', json['user']['last_name']);
           emailController.clear();
           passwordController.clear();
           Get.off(HomePage());

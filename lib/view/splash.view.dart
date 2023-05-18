@@ -5,6 +5,8 @@ import 'package:get/get.dart';
 import 'package:my_project/utils/global.colors.dart';
 import 'package:my_project/view/login.view.dart';
 
+import 'home.dart';
+
 
 class SplashView extends StatelessWidget {
   const SplashView({Key? key}) : super(key:key);
@@ -12,7 +14,8 @@ class SplashView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Timer(const Duration(seconds: 5),(){
-      Get.to(LoginView());
+      //LoginView
+      Get.to(HomePage());
     });
     return Scaffold(
       backgroundColor: GlobalColors.mainColor,
